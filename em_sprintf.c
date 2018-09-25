@@ -99,7 +99,7 @@ static unsigned int log10abs(long x) {
 	return ret;
 }
 
-static unsigned long pow10(int n) {
+static unsigned long pow_10(int n) {
 	unsigned long ret = 1;
 	for(int i=0; i<n; i++){
 		ret *= 10;
@@ -232,7 +232,7 @@ static char *assign_double(char *buf, va_list *arg) {
 	if( !property.left_align ) {
 		property.padding_width = 0;
 	}
-	flt = flt * pow10(property.padding_width_double) - (int)flt * pow10(property.padding_width_double);
+	flt = flt * pow_10(property.padding_width_double) - (int)flt * pow_10(property.padding_width_double);
 	buf = intToStr(buf, flt, 10);
 	return buf;
 }
@@ -266,7 +266,7 @@ static char *assign_double_imm(char *buf, double flt) {
 	if( !property.left_align ) {
 		property.padding_width = 0;
 	}
-	flt = flt * pow10(property.padding_width_double) - (int)flt * pow10(property.padding_width_double);
+	flt = flt * pow_10(property.padding_width_double) - (int)flt * pow_10(property.padding_width_double);
 	buf = intToStr(buf, flt, 10);
 	return buf;
 }
